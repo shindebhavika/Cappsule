@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --blue-text: rgba(42, 82, 122, 1);
+  --black-text:
+    rgba(0, 0, 0, 1)
+}
+
+
+.blue-text {
+  color: var(--blue-text);
+}
+
+.black-text {
+  color: var(--black-text);
+}
+
+.selected {
+  border: 1.5px solid rgba(17, 45, 49, 1);
+  box-shadow: 0 0 11.54px 0 rgba(0, 197, 161, 0.4);
+  border-radius: 8px;
+  padding: 3px 9px;
+  color: rgba(17, 45, 49, 1);
+  font-weight: 600;
+}
+
+.not-selected {
+  border: 1px solid rgba(171, 171, 171, 1);
+
+  border-radius: 8px;
+  padding:
+    5px 10px 5px 10px;
+  color:
+
+    rgba(85, 85, 85, 1);
+  font-weight: 400;
+}
+
+.not-available-not-selected {
+  border: 1px dashed rgba(171, 171, 171, 1);
+
+  border-radius: 8px;
+  padding:
+    5px 10px 5px 10px;
+  color:
+
+    rgba(85, 85, 85, 1);
+  font-weight: 400;
+  border-spacing: 15px 50px;
+ 
+}
+
+.not-available-selected {
+  border: 1.5px dashed rgba(17, 45, 49, 1);
+  box-shadow: 0 0 11.54px 0 rgba(0, 197, 161, 0.4);
+  border-radius: 8px;
+  padding: 3px 9px;
+  color: rgba(17, 45, 49, 1);
+  font-weight: 600;
+  border-spacing: 900px;
+}
+
+.form-strength-pack{
+  /* Your CSS */
+
+  display: flex;
+  font-weight: 300; /* Equivalent to font-light in Tailwind CSS */
+  line-height: 1.5rem; /* Equivalent to leading-6 in Tailwind CSS */
+  width: 70%; /* Equivalent to w-80 in Tailwind CSS */
+  justify-content: center; /* Equivalent to justify-center in Tailwind CSS */
+
+
+}
+.form-strength-pack button{
+  margin: 7px;
+}
