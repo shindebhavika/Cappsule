@@ -2,7 +2,8 @@
 import {  useState } from 'react';
 import ResultPage from './ResultPage';
 
-function Homapage() {
+
+function Homepage() {
   const [error, setError] = useState(null);
   const [instruction, setInstruction] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,8 +14,14 @@ setInstruction(false)
 if(e.target.value==""){
 
 setInstruction(true)
-}
-}
+}}
+
+const handleKeyDown = async (e) => {
+  if (e.key === "Enter" && searchTerm.trim() !== "") {
+    await handleSearch();
+  }
+};
+
 
 const handleSearch = async () => {
   
@@ -27,25 +34,28 @@ const handleSearch = async () => {
     }
     const data = await response.json();
     // console.log(searchResults)
+    console.log(data.data)
     setSearchResults(data.data.saltSuggestions);
     console.log(searchResults)
     setError(null);
   } catch (error) {
     setError("Error fetching data");
-  } finally {
-    // setLoading(false);
-  }
+  } 
 };
 
 
   return (
-    <main className="main relative">
-    <div className=" h-[100vh] w-[100%] gap-4 flex flex-col  items-center">
+    <main className="main relative w-[100%] ">
+    <div className=" h-[100vh] w-[100%] gap-4 flex flex-col  items-center ">
       <div>
-      <p className='text-base font-normal black-text'>Cappsule web development test</p>
+
     
+      <h1 className=' font-semibold text-2xl text-center pt-12 pb-12'>Cappsule Web Development Test</h1>
+
+
+
       </div>
-      <div className="relative flex items-center w-[50%] h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden border border-sky-500 rounded-[35px] justify-evenly" >
+      <div className="relative flex items-center w-[50%] h-20  focus-within:shadow-lg bg-white overflow-hidden border border-sky-500 rounded-full justify-between pl-3 pr-3 search-bar"  >
         <div className="grid place-items-center h-full w-12 text-black-300">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -63,41 +73,43 @@ const handleSearch = async () => {
           </svg>
         </div>
      
-       {/* <div> <svg xmlns="http://www.w3.org/2000/svg"fill="#112D31" className="bi bi-arrow-left   w-10 " viewBox="0 0 16 16">
-  <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
-</svg></div> */}
+      
         <input
-          className="peer h-full w-full outline-none text-sm  pr-2 text-[
-            #112D31] font-medium leading-6 ml-4"
+          className="peer h-full w-full outline-none text-[90%] pr-2 text-[
+            #112D31]  leading-6 ml-4 tracking-widest text-[#112D31] font-bold"
           type="text"
           id="search"
           placeholder="Type your medicine name here"
           value={searchTerm}
           onChange={(e) =>  onInput(e)}
-      
+          onKeyDown={handleKeyDown}
+  
         />
         
         <button
-          className="ml-2text-white px-4 py-2 rounded font-semibold blue-text"
+          className="ml-2  px-4 py-2 rounded font-semibold blue-text"
           onClick={handleSearch}
         >
           Search
         </button>
       </div>
-
-      {instruction && <div className='justify-center flex items-center h-full ' ><p className='text-[rgba(136, 136, 136, 1)] justify-center'>“ Find medicines with amazing discount “</p></div>}
+      <hr className="w-[65%] mx-auto mt-8" />
+      {instruction && <div className='justify-center flex items-center h-full ' ><p className='text-[rgba(136, 136, 136, 1)] justify-center font-semibold'>“ Find medicines with amazing discount “</p></div>}
 {error&& <p>{error}</p>}
       
     </div>
-    <div className=" flex items-center min-h-full top-28 absolute w-full flex-col gap-4  ">
-    {searchResults.length > 0 && searchResults.map((result, index) => (
-  <ResultPage key={index} result={result} />
-))}
+    <div className=" flex items-center min-h-full top-28 absolute w-full flex-col gap-4 mt-[10%] ">
+    {searchResults.length > 0 && (
+          searchResults.map((result, index) => (
+            <ResultPage key={index} result={result} />
+          ))
+        ) }
 
+{searchResults.length > 0 && instruction==false&& <p>no result form</p>}
   </div>
 
   </main>
   )
 }
 
-export default Homapage
+export default Homepage;

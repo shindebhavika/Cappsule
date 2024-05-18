@@ -1,17 +1,11 @@
-import React from 'react'
-import Homapage from './components/Homapage'
 
-
-
+import HomePage from "./components/Homepage";
 function App() {
   return (
     <div>
-      <Homapage></Homapage>
-
-    
-
+      <HomePage></HomePage>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
