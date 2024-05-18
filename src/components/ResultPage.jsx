@@ -13,7 +13,7 @@ function ResultPage({ index, result }) {
   const [allPackaging, setAllPackaging] = useState(Object.keys(result.salt_forms_json[selectedForm][selectedStrength]));
   const [selectedPack, setSelectedPack] = useState(Object.keys(result.salt_forms_json[selectedForm][selectedStrength])[0]);
 
-  // State for "View More" functionality
+ 
   const [showAllForms, setShowAllForms] = useState(false);
   const [showAllStrengths, setShowAllStrengths] = useState(false);
   const [showAllPackaging, setShowAllPackaging] = useState(false);

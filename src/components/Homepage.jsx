@@ -33,10 +33,10 @@ const handleSearch = async () => {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-    // console.log(searchResults)
-    console.log(data.data)
+  
+    
     setSearchResults(data.data.saltSuggestions);
-    console.log(searchResults)
+ 
     setError(null);
   } catch (error) {
     setError("Error fetching data");
