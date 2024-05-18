@@ -50,7 +50,7 @@ const handleSearch = async () => {
       <div>
 
     
-      <h1 className=' font-semibold text-2xl text-center pt-12 pb-12'>Cappsule Web Development Test</h1>
+      <h1 className=' font-semibold text-2xl text-center pt-12 pb-12 '>Cappsule Web Development Test</h1>
 
 
 
@@ -76,7 +76,7 @@ const handleSearch = async () => {
       
         <input
           className="peer h-full w-full outline-none text-[90%] pr-2 text-[
-            #112D31]  leading-6 ml-4 tracking-widest text-[#112D31] font-bold"
+            #112D31]  leading-6 ml-4 tracking-widest text-[#112D31] font-bold "
           type="text"
           id="search"
           placeholder="Type your medicine name here"
@@ -98,7 +98,7 @@ const handleSearch = async () => {
 {error&& <p>{error}</p>}
       
     </div>
-    <div className=" flex items-center min-h-full top-28 absolute w-full flex-col gap-4 mt-[10%] ">
+    <div className=" flex items-center min-h-full top-28 absolute w-full flex-col gap-4 mt-[20vh] ">
     {searchResults.length > 0 && (
           searchResults.map((result, index) => (
             <ResultPage key={index} result={result} />
